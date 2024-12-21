@@ -5,12 +5,13 @@ from datetime import datetime, date
 from pyttsx3 import init
 from num2words import num2words
 
+
 import cv2
 import face_recognition
 import os
 import numpy as np
 
-path = "C:\\Users\\Harsh\\OneDrive\\Desktop\\images"
+path = "C:\\Users\\Harsh\\OneDrive\\Desktop\\images" #will update the path to the hardware img modules
 images = []
 classNames = [os.path.splitext(cl)[0] for cl in os.listdir(path)]
 for cl in os.listdir(path):
