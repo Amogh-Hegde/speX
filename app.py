@@ -4,7 +4,8 @@ from text_reader import read_text
 from datetime import datetime, date
 from pyttsx3 import init
 from num2words import num2words
-
+import cv2
+import easyocr
 
 import cv2
 import face_recognition
@@ -69,3 +70,19 @@ if __name__ == "__main__":
         command = listen_and_respond()
         if command:
             respond_to_command(command)
+# OCR implimentation
+def read_text(engine):
+    cap = cv2.VideoCapture(0)
+    success, img = cap.read()
+    cap.release()
+    reader = easyocr.Reader(['en'])
+    engine.say("Processing the text in the image, please wait.")
+    engine.runAndWait()
+    try:
+        result = reader.readtext(img)
+        text = result[0][1] if result else "No text found"
+        engine.say(text)
+        engine.runAndWait()
+    except Exception as e:
+        engine.say("I couldn't process the text.")
+        engine.runAndWait()
