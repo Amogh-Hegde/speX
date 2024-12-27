@@ -1,4 +1,3 @@
-Here's a modern and sleek README for your **SpeX - AI-Powered Smart Glasses for Visually Impaired** project:
 
 ---
 
